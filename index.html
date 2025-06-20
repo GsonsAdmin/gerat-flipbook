@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-  <script src="js/turn.min.js"></script>
+  <script src="./js/turn.min.js"></script>
   <style>
     html, body {
       margin: 0;
@@ -102,12 +102,12 @@
   </div>
 
   <div id="controls">
-    <button onclick="prevPage()"><img src="icons/prev.svg" alt="Previous"></button>
+    <button onclick="prevPage()"><img src="./icons/prev.svg" alt="Previous"></button>
     <span id="page-counter">Page 1 / 60</span>
-    <button onclick="nextPage()"><img src="icons/next.svg" alt="Next"></button>
-    <button onclick="togglePlayPause()" id="playBtn"><img src="icons/play.svg" alt="Play"></button>
-    <button onclick="resetFlipbook()" id="resetBtn">  <img src="icons/reset.svg" alt="Reset"></button>
-    <button onclick="toggleFullscreen()"><img src="icons/fullscreen.svg" alt="Fullscreen"></button>
+    <button onclick="nextPage()"><img src="./icons/next.svg" alt="Next"></button>
+    <button onclick="togglePlayPause()" id="playBtn"><img src="./icons/play.svg" alt="Play"></button>
+    <button onclick="resetFlipbook()" id="resetBtn">  <img src="./icons/reset.svg" alt="Reset"></button>
+    <button onclick="toggleFullscreen()"><img src="./icons/fullscreen.svg" alt="Fullscreen"></button>
   </div>
 
   <script>
@@ -149,7 +149,7 @@
       if (autoplayInterval) {
         clearInterval(autoplayInterval);
         autoplayInterval = null;
-        btn.innerHTML = `<img src="icons/play.svg" alt="Play">`;
+        btn.innerHTML = `<img src="./icons/play.svg" alt="Play">`;
       } else {
         autoplayInterval = setInterval(() => {
           if (flipbook.turn('page') < totalPages) {
@@ -159,7 +159,7 @@
             togglePlayPause();
           }
         }, 3000);
-        btn.innerHTML = `<img src="icons/pause.svg" alt="Pause">`;
+        btn.innerHTML = `<img src="./icons/pause.svg" alt="Pause">`;
       }
     }
 function resetFlipbook() {
@@ -167,7 +167,7 @@ function resetFlipbook() {
   if (autoplayInterval) {
     clearInterval(autoplayInterval);
     autoplayInterval = null;
-    document.getElementById('playBtn').innerHTML = `<img src="icons/play.svg" alt="Play">`;
+    document.getElementById('playBtn').innerHTML = `<img src="./icons/play.svg" alt="Play">`;
   }
 
   // Jump to page 1
