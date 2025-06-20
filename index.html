@@ -6,7 +6,7 @@
   <title>GERAT Catalogue 2025</title>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
-  <script src="js/turn.min.js"></script>
+  <script src="./js/turn.min.js"></script>
  <style>
     html, body {
       margin: 0;
@@ -40,10 +40,13 @@
       height: 100%;
     }
 
-    #flipbook .page {
-      width: 49vw;
-      height: 100%;
-    }
+   #flipbook .page {
+  width: 49vw;
+  height: 100%;
+  cursor: grab; /* Add this to enable grab cursor */
+  overflow: hidden;
+  background: white;
+}
 
     .page img {
       width: 100%;
@@ -93,11 +96,11 @@
   </div>
 
   <div id="controls">
-    <button onclick="prevPage()"><img src="icons/prev.svg" alt="Prev"></button>
+    <button onclick="prevPage()"><img src="./icons/prev.svg" alt="Prev"></button>
     <span id="page-counter">Page 1 / 60</span>
-    <button onclick="nextPage()"><img src="icons/next.svg" alt="Next"></button>
-    <button onclick="togglePlayPause()" id="playBtn"><img src="icons/play.svg" alt="Play"></button>
-    <button onclick="toggleFullscreen()" id="fullscreenBtn"><img src="icons/fullscreen.svg" alt="Fullscreen"></button>
+    <button onclick="nextPage()"><img src="./icons/next.svg" alt="Next"></button>
+    <button onclick="togglePlayPause()" id="playBtn"><img src="./icons/play.svg" alt="Play"></button>
+    <button onclick="toggleFullscreen()" id="fullscreenBtn"><img src="./icons/fullscreen.svg" alt="Fullscreen"></button>
   </div>
 
   <script>
@@ -139,7 +142,7 @@
       if (autoplayInterval) {
         clearInterval(autoplayInterval);
         autoplayInterval = null;
-        btn.innerHTML = `<img src="icons/play.svg" alt="Play">`;
+        btn.innerHTML = `<img src="./icons/play.svg" alt="Play">`;
       } else {
         autoplayInterval = setInterval(() => {
           if (flipbook.turn('page') < totalPages) {
@@ -148,7 +151,7 @@
             togglePlayPause();
           }
         }, 3000);
-        btn.innerHTML = `<img src="icons/pause.svg" alt="Pause">`;
+        btn.innerHTML = `<img src="./icons/pause.svg" alt="Pause">`;
       }
     }
 
