@@ -82,6 +82,27 @@
       font-weight: bold;
       color: #333;
     }
+
+    @media (max-width: 768px) {
+  #title-bar {
+    font-size: 40px;
+  }
+
+  #controls {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #controls button {
+    font-size: 40px;
+    padding: 10px 20px;
+  }
+
+  #page-counter {
+    font-size: 30px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -119,6 +140,14 @@
       acceleration: true,
       gradients: true
     });
+
+    function resizeFlipbook() {
+  const wrapperHeight = window.innerHeight - document.getElementById("title-bar").offsetHeight - document.getElementById("controls").offsetHeight;
+  $('#flipbook').turn('size', window.innerWidth, wrapperHeight);
+}
+resizeFlipbook();
+window.addEventListener('resize', resizeFlipbook);
+
 
     function updatePageCounter() {
       const page = flipbook.turn('page');
